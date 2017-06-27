@@ -1,0 +1,14 @@
+{
+  "name": "mmsmsy-google-places-backend",
+  "version": "1.0.0",
+  "description": "Backend to retrieve data from Google Places API and pass it along to the front-end part of the app.",
+  "main": "app.js",
+  "author": "mmsmsy",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.3",
+    "express": "^4.15.3"
+  }
+}
