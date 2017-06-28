@@ -32,8 +32,8 @@ router.get('/listplaces', (req, res) => {
 });
 
 router.get('/nextpage', (req, res) => {
-  const url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken='
-    + req.query.nextPageToken
+  const url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json'
+    + '?pagetoken=' + req.query.nextPageToken
     + '&key=' + googleApiKey;
 
   axios.get(url)
@@ -47,16 +47,28 @@ router.get('/nextpage', (req, res) => {
     });
 });
 
-router.get('/getphoto/:reference', (req, res) => {
-  const url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference='
-    + req.params.reference
-    + '&key='
-    + googleApiKey;
+router.get('/getphoto', (req, res) => {
+  const url = 'https://maps.googleapis.com/maps/api/place/photo'
+    + '?maxwidth=' + req.query.maxwidth
+    + '&photoreference=' + req.query.reference
+    + '&key=' + googleApiKey;
 
   axios.get(url)
     .then(photo => {
-      res.send(photo.request.res.responseUrl)
-      console.log('GET, /getphoto')
+      res.send(photo.request.res.responseUrl);
+      console.log('GET, /getphoto');
+    });
+});
+
+router.get('/placedetails/:id', (req, res) => {
+  const url = 'https://maps.googleapis.com/maps/api/place/details/json'
+    + '?placeid=' + req.params.id
+    + '&key=' + googleApiKey;
+
+  axios.get(url)
+    .then(place => {
+      res.send(place.data.result);
+      console.log('GET, /placedetails/');
     });
 });
 
