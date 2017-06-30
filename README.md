@@ -3,9 +3,9 @@
 
 ### App developed on Windows using Unix CLI emulator (usually work done on Ubuntu)
 ### To create a local copy
-Copy the repository except for node_modules folder
-yarn install
-nodemon app.js
+##### Copy the repository except for node_modules folder
+##### yarn install
+##### nodemon app.js
 #### The development server will start on localhost:3001
 
 ### Description
